@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mustacheExpress = require('mustache-express');
 
-
 const app = express();
 
 app.use(bodyParser.json());
@@ -20,39 +19,14 @@ app.get ('/', function (req, res){
 });
 
 app.post ('/', function (req, res){
-  todo.unshift(req.body.todo);
-  res.redirect('/');
+  let item = {
+    'task': req.body.task,
+    'checked': ''
+  };
+  todo.push(item);
+  res.render('index', {todo: todo});
 })
 
 app.listen(3000, function(){
   console.log('Ok good whatever');
 })
-
-
-// LOL SO BROKEN OMG ^_^
-
-
-// app.get('/', function(req, res){
-//    html  = '<form action="/" method="post">' +
-//              '<input type="text" name="todo" placeholder="Add a todo...">' +
-//              '<button type="submit">Add todo</button>' +
-//              '</form>'
-//   res.send(html);
-// })
-//
-// app.post('/', function (req, res){
-//   todo = req.body.todo;
-//   html +=   ` <form action='/' method='post'>
-//               <button type='submit' class='button'>Mark complete</button> ${todo} <br>
-//               </form>
-//             `
-//   res.send(html);
-// })
-//
-// app.post('/', function (req, res){
-//   todo =
-//   html += `
-//           <br> ${todo}
-//           `;
-//   res.send(html);
-// })

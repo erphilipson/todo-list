@@ -6,11 +6,15 @@
   </head>
   <body>
     <form action ='/' method='post'>
-      <input type='text' name='todo' placeholder='Add a todo...'>
-      <button type='submit'>Add todo</button>
+      <input type='text' name='task' placeholder='Add a todo...'>
+      <button type='submit'>Add todo...</button>
     </form>
+    <ul>
+      {{#todo}}
+        <li>{{task}}</li>
+      {{/todo}}
+    </ul>
 
-    {{todo.0}}
 
 
 
