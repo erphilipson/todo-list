@@ -6,12 +6,13 @@
   </head>
   <body>
     <form action ='/' method='post'>
-      <input type='text' name='task' placeholder='Add a todo...'>
+      <input type='text' name='task' placeholder='Add a todo'><br>
+      <input type='number' name='priority' placeholder='Priority level'><br>
       <button type='submit'>Add todo...</button>
     </form>
     <ul>
       {{#todo}}
-        <li>{{task}}</li>
+        <br><input type='checkbox' {{checked}}> {{task}}
       {{/todo}}
     </ul>
 
