@@ -11,28 +11,8 @@ app.engine('mustache', mustacheExpress());
 app.set('views', './views')
 app.set('view engine', 'mustache')
 
-// const task = models.Task.build({
-//   name: 'clean',
-//   priority: 5
-// });
-
 let todo = [];
 let html ='';
-
-// task.save().then(function(newTask){
-//   console.log(newTask.id);
-// })
-
-// models.Task.findAll().then(function(tasks){
-//   for (i in tasks){
-//   console.log(tasks[i].name);
-// }
-// })
-
-// models.Task.findOne({where: {id: 1} }).then(function(task){
-//   console.log(task.name);
-// })
-
 
 app.get ('/', function (req, res){
   res.render ('index', {todo: todo});
